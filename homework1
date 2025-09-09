@@ -1,0 +1,25 @@
+a = []
+mn_input = raw_input()
+m,n = map(int,mn_input.split())
+
+for i in range(m):
+    r = raw_input()
+    t = r.split()
+    a.append(t)
+
+# for i in range(m):
+#     for j in range(n):
+#         print a[i][j],
+#     print('')
+
+f = open("D:\my\physics\computational physics\homework\data.txt", "w")
+for i in range(m):
+    for j in range(n):
+        f.write(a[i][j] + ' ')
+    f.write("\n")
+f.close()
+
+g = open("D:\my\physics\computational physics\homework\data.txt", "r")
+for l in g:
+    print(l.strip())
+g.close()
