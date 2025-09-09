@@ -1,0 +1,69 @@
+a = []
+print("input the demention of matrix:")
+mn = raw_input()
+m,n = map(int,mn.split())
+
+print("input the matrix:")
+for i in range(m):
+    r = raw_input()
+    t = r.split()
+    a.append(t)
+
+# for i in range(m):
+#     for j in range(n):
+#         print a[i][j],
+#     print('')
+
+b=[]
+print("input the demension of vector:")
+yz = raw_input()
+y,z = map(int,yz.split())
+
+print("input the vector:")
+for i in range(y):
+    r2 = raw_input()
+    t2 = r2.split()
+    b.append(t2)
+
+# for i in range(y):
+#     for j in range(z):
+#         print b[i][j],
+#     print('')
+
+if n != y :
+    print("the dimension isn't matching")
+
+c = [[0 for _ in range(z)] for _ in range(m)]
+for i in range(m):
+    for j in range(z):
+        for k in range(n):
+            c[i][j]=c[i][j]+int(a[i][k])*int(b[k][j])
+
+print("result of A*v")
+for i in range(m):
+    for j in range(z):
+        print c[i][j],
+    print('')
+
+bT=[[0 for _ in range(y)] for _ in range(z)]
+for i in range(z):
+        for j in range(y):
+            bT[i][j]=b[j][i]
+
+d_pro=[[0 for _ in range(n)] for _ in range(z)]
+for i in range(z):
+    for j in range(n):
+        for k in range(y):
+            d_pro[i][j]=d_pro[i][j]+int(bT[i][k])*int(a[k][j])
+
+d=[[0 for _ in range(z)] for _ in range(z)]
+for i in range(z):
+    for j in range(z):
+        for k in range(n):
+            d[i][j]=d[i][j]+int(d_pro[i][k])*int(b[k][j])
+
+print("result of vT*A*v")
+for i in range(z):
+    for j in range(z):
+        print d[i][j],
+    print('')
